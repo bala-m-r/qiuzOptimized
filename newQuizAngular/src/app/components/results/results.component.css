@@ -1,0 +1,31 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.head h2 {
+    margin: 0;
+}
+
+.head p-floatLabel {
+    width: 250px; /* Slightly increased width for better usability */
+}
+
+.head input {
+    width: 100%;
+    padding: 8px 12px; /* Added padding for better spacing inside the input */
+    font-size: 16px; /* Adjusted font size for readability */
+    border: 2px solid #ccc; /* Slightly thicker border for visibility */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: none; /* Remove any default shadow */
+    transition: border-color 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Focus state for the input box */
+.head input:focus {
+    outline: none;
+    border-color: #007ad9; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 122, 217, 0.3); /* Subtle shadow for focus */
+}

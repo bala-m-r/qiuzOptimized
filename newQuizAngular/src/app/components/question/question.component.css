@@ -1,0 +1,178 @@
+/* Container for the questions */
+.question-container {
+    padding: 20px;
+    background-color: #f5f5f5; /* Light grey background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 700px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    color: #333; /* Dark text for readability */
+}
+
+/* Header for questions section */
+.question-container h2 {
+    color: #ff6347; /* Red accent color */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styling the buttons */
+button {
+    background-color: #ff6347; /* Red accent color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+}
+
+button:hover {
+    background-color: #ff4500; /* Darker shade on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    background-color: #ff6347; /* Revert color on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+    /* transform: translateY(2px);  */
+}
+
+/* Styling for the question list */
+.question-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.question-container li {
+    padding: 15px;
+    background-color: #fff; /* White background for contrast */
+    margin-bottom: 10px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Light shadow for each question */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* .question-container li:hover {
+    transform: translateY(-5px); 
+} */
+
+/* Styling for the options list */
+.question-container li ul li {
+    margin-left: 20px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #ff6347; /* Red accent border for options */
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Correct answer in light green */
+.question-container li ul li.correct {
+    background-color: #e6f5e9; /* Light green background for correct answers */
+    border-left: 4px solid #32cd32; /* Green accent border */
+    color: #32cd32; /* Green text for correct answers */
+}
+
+/* Message when no questions are available */
+.question-container p {
+    font-size: 16px;
+    color: #666; /* Subtle grey text */
+    padding: 15px;
+    background-color: #f5f5f5; /* Light grey background */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center;
+    margin-top: 20px;
+}
+/* Container for the question list */
+.question-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Flexbox to position buttons at opposite corners */
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.left-button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.right-button {
+    
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.left-button:hover,
+.right-button:hover {
+    background-color: #ff4500;
+}
+
+/* Styling the question list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Question item layout with flexbox */
+.question-item {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+}
+
+/* Flexbox to position question text and delete button */
+.question-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete button on the right */
+.delete-button {
+    background-color: #ff4500;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #ff6347;
+}
+
+/* Correct answer styling */
+.correct {
+    background-color: #e6f5e9; /* Light green for correct answers */
+    border-left: 4px solid #32cd32;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+

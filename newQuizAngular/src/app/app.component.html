@@ -1,0 +1,24 @@
+<div class="app-container">
+  <header>
+    <p-menubar>
+      <ng-template pTemplate="start">
+        <h3>Quiz</h3>
+      </ng-template>
+      <ng-template pTemplate="end">
+        <div class="menu-items">
+          <a pButton label="Student" icon="pi pi-user" routerLink="/student" class="p-button-text"></a>
+          <a pButton label="Teacher" icon="pi pi-book" routerLink="/subjects" class="p-button-text"></a>
+        </div>
+      </ng-template>
+    </p-menubar>
+  </header>
+
+  <main>
+    <!-- Main content will be rendered here -->
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+    <p>Quiz Application &copy; 2024</p>
+  </footer>
+</div>

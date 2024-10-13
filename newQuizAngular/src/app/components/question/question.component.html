@@ -1,0 +1,79 @@
+<div class="question-container" *ngIf="isQuestionList">
+  <h2>Questions</h2>
+  <div class="header-buttons">
+    <p-button *ngIf="!isTest" label="Add Questions" icon="pi pi-plus" (click)="addNewQuestion()"
+      styleClass="p-button-success left-button"></p-button>
+  </div>
+  <ul>
+    <li *ngFor="let question of questions, let i = index">
+      <div class="question-content">
+        <span>{{i+1}}.{{ question.question }}</span>
+        <div *ngIf="!isTest">
+          <p-button label="Edit" icon="pi p-button-info" (click)="editExistingQuestion(question)"
+            styleClass="p-button-info edit-button"></p-button>
+          <p-button label="" icon="pi pi-trash" (click)="deleteQuestion(question.id)"
+            styleClass="p-button-danger delete-button"></p-button>
+        </div>
+      </div>
+      <ul *ngIf="!isTest">
+        <li *ngFor="let option of question.options" [ngClass]="{'correct': option.isright}">
+          {{ option.answer }}
+        </li>
+      </ul>
+
+      <ul *ngIf="isTest">
+        <li *ngFor="let option of question.options">
+          <p-radioButton name="option{{i}}" [(ngModel)]="selectedAnswers[i]" [value]="option"
+            inputId="option{{i}}{{option.id}}">
+          </p-radioButton>
+          <label for="option{{i}}{{option.id}}">{{ option.answer }}</label>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="submit-button" *ngIf="isTest">
+    <button pButton label="Submit Quiz" icon="pi pi-check" (click) = "submitQuiz()"></button>
+  </div>
+  <div *ngIf="quizSubmitted">
+    <h3>Your Score: {{score}}/{{questions.length}}</h3>
+  </div>
+  <!-- <div *ngIf="quizSubmitted">
+    <button pButton label="Back to Subjects" icon="pi pi-arrow-left" (click) = "backToSubject()"></button>
+  </div> -->
+</div>
+
+<div class="question-container" *ngIf="isAdd || isEdit">
+  <h2>{{ isEdit ? 'Edit Question' : 'Add New Question' }}</h2>
+  <form [formGroup]="questionForm" (ngSubmit)="submitForm()" autocomplete="off">
+
+    <!-- Question Input -->
+    <div class="form-group">
+      <label for="question">Question:</label>
+      <input pInputText id="question" formControlName="question" required />
+    </div>
+
+    <!-- Answer Options -->
+    <h3>Answer Options</h3>
+    <div formArrayName="options" *ngFor="let option of optionControls.controls; let i = index">
+      <div [formGroupName]="i" class="form-group">
+        <label for="answer{{i}}">Answer {{i + 1}}:</label>
+        <input pInputText id="answer{{i}}" formControlName="answer" required />
+        <p-checkbox formControlName="isright" binary="true" label="Correct"></p-checkbox>
+        <p-button label="" icon="pi pi-minus" (click)="removeOption(i)" styleClass="p-button-danger"></p-button>
+      </div>
+    </div>
+    <br>
+
+    <!-- Add Another Option Button -->
+    <p-button label="Add another Option" icon="pi pi-plus" (click)="addOption()"
+      styleClass="p-button-secondary"></p-button><br><br>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <p-button type="submit" label="Submit Question" icon="pi pi-check" styleClass="p-button-success"></p-button>
+    </div>
+  </form>
+
+  <p-button label="Go To Question List" icon="pi pi-arrow-right" (click)="toQuestions()"
+    styleClass="p-button-info"></p-button>
+</div>

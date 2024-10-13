@@ -1,0 +1,120 @@
+.subject-container {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Center the container */
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+.subject-container h2{
+    text-align: center;
+    color: #333;
+    font-size: 24px; /* Larger font size for headings */
+}
+
+.subject-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.subject-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center content */
+    padding: 10px;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 5px; /* Rounded corners for individual items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Light shadow for each item */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.subject-container li:hover {
+    transform: translateY(-5px); /* Lift on hover */
+}
+
+.actions {
+    display: flex;
+    gap: 10px; /* Space between icon and button */
+    align-items: center; /* Align them vertically */
+}
+
+button {
+    background-color: #ff6347; /* Primary color */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded button */
+    font-size: 14px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+}
+
+button:hover {
+    background-color: #ff4500;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+button:active {
+    background-color: #ff6347; /* Revert color on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+    transform: translateY(2px); /* Slight press effect */
+}
+
+i.fa-plus {
+    font-size: 18px; /* Icon size */
+    color: #ff6347; /* Icon color matching the button */
+    cursor: pointer; /* Pointer cursor on icon */
+    transition: color 0.3s ease;
+}
+
+i.fa-plus:hover {
+    color: #ff4500; /* Hover color matching the button hover */
+}
+
+input,
+textarea {
+    width: 93%; /* Make it full width */
+    padding: 10px 15px;
+    margin: 10px 0; /* Add some space between inputs */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+    font-size: 16px;
+    background-color: #f9f9f9; /* Light background for input field */
+    color: #333; /* Darker text for readability */
+    transition: all 0.3s ease; /* Smooth transition for focus effects */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+input:focus,
+textarea:focus {
+    outline: none; /* Remove default blue outline */
+    border-color: #ff6347; /* Focus border color matching the button theme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow on focus */
+    background-color: #fff; /* Change background to pure white on focus */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa; /* Subtle placeholder text */
+}
+
+input:hover,
+textarea:hover {
+    border-color: #ff4500; /* Border color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance shadow on hover */
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.list{
+    display: flex;
+}

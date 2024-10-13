@@ -1,0 +1,101 @@
+.student-list-container {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Center the container */
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-size: 18px; /* Increase font size for readability */
+}
+
+.student-list-container h2, .student-list-container h3 {
+    text-align: center;
+    color: #333;
+    font-size: 24px; /* Larger font size for headings */
+}
+
+.student-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.student-list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center content */
+    padding: 10px;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 5px; /* Rounded corners for individual items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Light shadow for each item */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.student-list-container li:hover {
+    transform: translateY(-5px); /* Lift on hover */
+}
+
+.student-list-container li div {
+    display: flex;
+    gap: 10px; /* Space between elements */
+}
+
+.student-list-container button {
+    background-color: #ff6347; /* Primary color */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded button */
+    font-size: 14px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+}
+
+.student-list-container button:hover {
+    background-color: #ff4500; /* Darken on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.student-list-container button:active {
+    background-color: #ff6347; /* Revert color on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+    transform: translateY(2px); /* Slight press effect */
+}
+
+.student-list-container input {
+    width: 93%; /* Make input almost full width */
+    padding: 10px 15px;
+    margin: 10px 0; /* Add some space between inputs */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+    font-size: 16px;
+    background-color: #f9f9f9; /* Light background for input field */
+    color: #333; /* Darker text for readability */
+    transition: all 0.3s ease; /* Smooth transition for focus effects */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+.student-list-container input:focus {
+    outline: none; /* Remove default blue outline */
+    border-color: #ff6347; /* Focus border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow on focus */
+    background-color: #fff; /* Change background to pure white on focus */
+}
+
+.student-list-container input::placeholder {
+    color: #aaa; /* Subtle placeholder text */
+}
+
+.student-list-container input:hover {
+    border-color: #ff4500; /* Border color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance shadow on hover */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}

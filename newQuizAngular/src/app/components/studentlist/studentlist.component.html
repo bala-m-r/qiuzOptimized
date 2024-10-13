@@ -1,0 +1,75 @@
+<div class="student-list-container" *ngIf="isStudentList">
+    <h2>Student List</h2>
+
+<p-table [value]="students" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Student Name</th>
+            <th>Roll Number</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-student let-i="rowIndex">
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.rollno }}</td>
+            <td>
+                <p-button label="" icon="pi pi-book" (click)="selectStudent(student.rollno)" 
+                    styleClass="p-button-success" pTooltip="Take Test" tooltipPosition="left">
+                </p-button>&emsp;
+                
+                <p-button label="" icon="pi pi-check" (click)="viewProgress(student.rollno)" 
+                    pTooltip="Progress" tooltipPosition="top">
+                </p-button>&emsp;
+                
+                <p-button label="" icon="pi pi-trash" (click)="deleteStudent(student.id)" 
+                    styleClass="p-button-danger" pTooltip="Delete" tooltipPosition="right">
+                </p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+    <h3>Add New Student</h3>
+    <form [formGroup]="addStudentForm" (ngSubmit)="addStudent()">
+      <div class="p-fluid">
+       
+        <div class="p-field">
+          <input pInputText formControlName="rollno" placeholder="Enter Student Roll Number" autocomplete="off" />
+         
+          <div *ngIf="addStudentForm.get('rollno')?.invalid && addStudentForm.get('rollno')?.touched">
+            <small class="p-error">Roll Number is required</small>
+          </div>
+        </div>
+        <div class="p-field">
+          <input pInputText formControlName="name" placeholder="Enter Student name" autocomplete="off" />
+          <div *ngIf="addStudentForm.get('name')?.invalid && addStudentForm.get('name')?.touched">
+            <small class="p-error">Student name is required</small>
+          </div>
+        </div>
+        <p-button label="Add Student" icon="pi pi-plus" styleClass="p-button-success" type="submit" [disabled]="addStudentForm.invalid"></p-button>
+      </div>
+    </form>
+    <p-messages *ngIf="errorMessage" severity="error">
+        <ng-template pTemplate>
+          <div class="ml-2">{{ errorMessage }}</div>
+        </ng-template>
+      </p-messages>
+</div>
+
+<app-subjectlist [isSubjectListForStudent]="isSubjectListForStudent" 
+                 [rollno]="rollno"
+                 [isSubjectList]="isSubjectList"
+                 (isStudent) = "fromSubject($event)"
+                 (isStudentList)="backStudentList($event)"
+*ngIf="isSubjectListForStudent"></app-subjectlist>
+
+<p-button label="Back to Students List" icon="pi pi-arrow-left" (click)="backToStudent()"
+  *ngIf="isSubjectList && isSubjectListForStudent  "></p-button>
+
+<app-results [rollno]="rollno"
+             [isStudent]="true"
+             (isResult)="result($event)"
+             (isStudentList)="studentList($event)"
+*ngIf="isResult"></app-results>

@@ -1,0 +1,99 @@
+
+<div class="subject-container" *ngIf="isSubjectList">
+  <h2>Subject List</h2>
+
+  <p-table [value]="subjects" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Subject Code</th>
+        <th>Subject Name</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-subject let-i="rowIndex">
+      <tr>
+        <td>{{ subject.subjectcode }}</td>
+        <td>{{ subject.subject }}</td>
+        <td *ngIf="!isSubjectListForStudent">
+          <p-button label="" icon="pi pi-book" (click)="selectSubject(i)" styleClass="p-button-success"
+            pTooltip="Questions" tooltipPosition="left">
+          </p-button>&emsp;
+
+          <p-button label="" icon="pi pi-check" (click)="viewProgress(subject.subjectcode)" pTooltip="Progress"
+            tooltipPosition="top">
+          </p-button>&emsp;
+
+          <p-button label="" icon="pi pi-trash" (click)="deleteSubject(i)" styleClass="p-button-danger"
+            pTooltip="Delete" tooltipPosition="right">
+          </p-button>
+        </td>
+        <td *ngIf="isSubjectListForStudent">
+          <p-button label="Take Test" icon="pi pi-book" (click)="taketest(subjects[i].subjectcode)"></p-button>&emsp;
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- <h2>Subject List</h2>
+    
+    <ul >
+      <li *ngFor="let subject of subjects; let i = index" class="list">
+        <div>
+          {{subject.subjectcode}}
+        </div>
+        <div>
+          {{ subject.subject }}
+        </div>
+
+        <div class="buttons">
+          <p-button label="" icon="pi pi-book" (click)="selectSubject(i)" styleClass="p-button-success"pTooltip="Questions" tooltipPosition="left"></p-button>&emsp;
+          <p-button label="" icon="pi pi-check" (click)="viewProgress(i)" pTooltip="Progress" tooltipPosition="top"></p-button>&emsp;
+          <p-button label="" icon="pi pi-trash" (click)="deleteSubject(i)" styleClass="p-button-danger" pTooltip="Delete" tooltipPosition="right"></p-button>
+        </div>
+      </li>
+    </ul> -->
+  <div *ngIf="!isSubjectListForStudent">
+    <h3>Add New Subject</h3>
+    <form [formGroup]="addSubjectForm" (ngSubmit)="addSubject()">
+      <div class="p-fluid">
+        <div class="p-field">
+          <input pInputText formControlName="subjectcode" placeholder="Enter subject code" autocomplete="off" />
+          <div *ngIf="addSubjectForm.get('subjectcode')?.invalid && addSubjectForm.get('subjectcode')?.touched">
+            <small class="p-error">Subject code is required</small>
+          </div>
+        </div>
+        <div class="p-field">
+          <input pInputText formControlName="subject" placeholder="Enter subject name" autocomplete="off" />
+          <div *ngIf="addSubjectForm.get('subject')?.invalid && addSubjectForm.get('subject')?.touched">
+            <small class="p-error">Subject name is required</small>
+          </div>
+        </div>
+        <p-button label="Add Subject" icon="pi pi-plus" styleClass="p-button-success" type="submit"
+          [disabled]="addSubjectForm.invalid"></p-button>
+      </div>
+    </form>
+    <p-messages *ngIf="errorMessage" severity="error">
+      <ng-template pTemplate>
+        <div class="ml-2">{{ errorMessage }}</div>
+      </ng-template>
+    </p-messages>
+  </div>
+</div>
+
+<app-question [subjectcodeForQuestions]="subjectcodeForQuestions" [isTest]="isTest" [rollno]="rollno"
+              [isQuestionList]="isQuestionList"
+              (isSubjectListForStudent)="subjectListForStudent($event)"
+  *ngIf="isQuestionList"></app-question>
+
+  <button pButton label="Back to Subjects" icon="pi pi-arrow-left" (click) = "backToSubjectForStudent()"
+          *ngIf="isQuestionList && isSubjectListForStudent"></button>
+
+
+<p-button label="Back to Subjects List" icon="pi pi-arrow-left" (click)="backToSubject()"
+  *ngIf="isQuestionList && !isSubjectListForStudent && !isTest" ></p-button>
+  <!-- <p-button label="Back to Students List" icon="pi pi-arrow-left" (click)="backToStudent()"
+  *ngIf="isSubjectList && isSubjectListForStudent"></p-button> -->
+
+<app-results [subjectcode]="subjectcode" (isResult)="result($event)" (isSubjectList)="subjectList($event)"
+  *ngIf="isResult"></app-results>
